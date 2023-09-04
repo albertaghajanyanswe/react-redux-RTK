@@ -4,6 +4,7 @@ import './App.css';
 import Counter from './components/Counter';
 import Users from './components/Users';
 import UsersRTK from './components/UsersRTK';
+import UsersRQ from './components/UsersRQ';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Counter />
       <Users />
       <UsersRTK />
+      <UsersRQ />
     </div>
   );
 }

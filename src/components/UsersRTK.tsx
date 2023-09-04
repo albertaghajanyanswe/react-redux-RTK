@@ -21,9 +21,10 @@ function UsersRTK() {
     })
   }
 
-  const handleDelete = (user: IUser) => {
-    deleteUser(user);
+  const handleDelete = async (user: IUser) => {
+    await deleteUser(user);
   }
+
   const handleSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     await addUser(newUser as IUser);
@@ -36,8 +37,8 @@ function UsersRTK() {
       {error && <h2> Could not get users data. </h2>}
       <ul>
         {users && users.map(i => (
-          <div>
-            <li key={i.id} style={{ textAlign: 'start'}}>{`${i.id}. ${i.name} - ${i.email}`}</li>
+          <div key={i.id}>
+            <li style={{ textAlign: 'start'}}>{`${i.id}. ${i.name} - ${i.email}`}</li>
             <button disabled={deleteLoading} onClick={() => handleDelete(i)}>Delete</button>
           </div>
         ))}

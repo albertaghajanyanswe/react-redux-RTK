@@ -3,9 +3,9 @@ import { get, post, put, del } from './client';
 import { apiEndpoints } from './configs';
 
 const userService = {
-  getUsers: async (params: any) => {
+  getUsers: async<T, O> (params: O) => {
     const options = { url: `${apiEndpoints.users}`, params: {...params} };
-    return get(options);
+    return get<T>(options);
   },
   getUser: async (id: string) => {
     const options = { url: apiEndpoints.user.replace(':userId', id)};
